@@ -1,6 +1,6 @@
-var location1=3; //pola do przechowywania położenia komórek okrętu
-var location2=4;
-var location3=5;
+var location1=Math.floor(Math.random() * 5); //pola do przechowywania położenia komórek okrętu
+var location2=location1 + 1;
+var location3=location2 + 1;
 
 var guess; //liczba wskazana przez użytkownika do trafienie
 var hits=0; //liczba trafień
