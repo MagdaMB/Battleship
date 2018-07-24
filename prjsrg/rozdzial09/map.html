@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Skarb piratów</title>
+  <script>
+    window.onload = init;
+    function init() {
+        var map = document.getElementById("map");
+        map.onmousemove = showCoords;
+    }
+    
+    function showCoords(eventObj) {
+        var map = document.getElementById("coords");
+        var x = eventObj.clientX;
+        var y = eventObj.clientY;
+        map.innerHTML = "Współrzędne na mapie: " + x + ", " + y;
+    }
+  </script>
+</head>
+<body>
+    <img id="map" src="map.jpg">
+    <p id="coords">Przesuń wskaźnik myszy na mapę, by odczytać współrzędne...</p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Typy</title>
+  <script>
+
+function lieDetectorTest() {
+	var lies = 0;
+
+	var stolenDiamond = { };
+	if (stolenDiamond) {
+    	console.log("Ukradłeś diament!");
+		lies++;
+	}
+
+	var car = {
+    	keysInPocket: null
+	};
+	if (car.keysInPocket) {
+    	console.log("Oo, ukradłeś także samochód!");
+		lies++;
+	}
+	if (car.emptyGasTank) {
+    	console.log("Także jechałeś ukradzionym samochodem!");
+		lies++;
+	}
+
+	var foundYouAtTheCrimeScene = [ ];
+	if (foundYouAtTheCrimeScene) {
+    	console.log("To oczywisty dowód przestępstwa!");
+		lies++;
+	}
+	if (foundYouAtTheCrimeScene[0]) {
+    	console.log("Znaleziono przy tobie ukradziony diament!");
+		lies++;
+	}
+
+	var yourName = " ";
+	if (yourName) {
+    	console.log("Dodatkowo skłamałeś podając swoje personalia");
+		lies++;
+	}
+	return lies;
+}
+var numberOfLies = lieDetectorTest();
+console.log("Skłamałeś " + numberOfLies + " razy!");
+if (numberOfLies >= 3) {
+	console.log("Winny wszystkich zarzutów!");
+}
+
+  </script>
+</head>
+<body>
+</body>
+</html>

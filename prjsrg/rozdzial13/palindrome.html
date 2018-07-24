@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Palindromy</title>
+<script>
+
+String.prototype.palindrome = function() {
+    var len = this.length-1;
+    for (var i = 0; i <= len; i++) {
+        if (this.charAt(i) !== this.charAt(len-i)) {
+            return false;
+        }
+        if (i === (len-i)) {
+            return true;
+        }
+    }
+    return true;
+};
+
+//
+// SUPER zaawansowane rozwiązanie
+//
+String.prototype.palindromeAdv = function() {
+    var r = this.split("").reverse().join("");
+    return (r === this.valueOf());
+}
+
+var phrases = ["oko",
+               "kajak",
+               "mam",
+               "sedes",
+               "to nie palindrom"];
+
+for (var i = 0; i < phrases.length; i++) {
+    var phrase = phrases[i];
+    if (phrase.palindrome()) {
+        console.log("'" + phrase + "' jest palindromem.");
+    } else {
+        console.log("'" + phrase + "' NIE jest palindromem.");
+    }
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

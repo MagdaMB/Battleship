@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Testowanie umiejętności wykonywania siadu</title>
+<script>
+function Dog(name, breed, weight) {
+	this.name = name;
+	this.breed = breed;
+	this.weight = weight;
+}
+
+Dog.prototype.species = "Psowate";
+Dog.prototype.sitting = false;
+
+Dog.prototype.bark = function() {
+    if (this.weight > 10) {
+        console.log(this.name + " szczeka hau!");
+    } else {
+        console.log(this.name + " szczeka hiauu!");
+    }
+};
+
+Dog.prototype.run = function() {
+    console.log("Biega!");
+};
+Dog.prototype.wag = function() {
+    console.log("Merda ogonem!");
+};
+Dog.prototype.sit = function() {
+	if (this.sitting) {
+		console.log(this.name + " już siedzi.");
+	} else {
+		this.sitting = true;
+		console.log(this.name + " wykonał siad.");
+	}
+};
+
+var fido = new Dog("Burek", "mieszaniec", 20);
+var fluffy = new Dog("Dino", "pudel", 16);
+var spot = new Dog("Kieł", "chihuahua", 4);
+var barnaby = new Dog("Barnaba", "basset", 27);
+
+spot.bark = function() {
+	console.log(this.name + " szczeka HAU HAU!");
+};
+
+fido.bark();
+fido.run();
+fido.wag();
+
+fluffy.bark();
+fluffy.run();
+fluffy.wag();
+
+spot.bark();
+spot.run();
+spot.wag();
+
+barnaby.sit();
+barnaby.sit();
+spot.sit();
+spot.sit();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Witam - Aloha</title>
+<script>
+
+function sayIt(translator) {
+	var phrase = translator("Witam");
+	alert(phrase);
+}
+
+function hawaiianTranslator(word) {
+	if (word == "Witam") return "Aloha";
+	if (word == "Do widzenia") return "Aloha";
+}
+
+sayIt(hawaiianTranslator);
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>JavaScriptowe wyzwanie ekstremalne</title>
+<script>
+
+var justAVar = "Och, nie przejmuj się, jestem zmienną GLOBALNĄ!";
+
+function whereAreYou() {
+	var justAVar = "Szara, zwyczajna zmienna LOKALNA.";
+
+	function inner() {
+		return justAVar;
+	}
+
+	return inner;
+}
+
+var innerFunction = whereAreYou();
+var result = innerFunction();
+console.log(result);
+
+</script>
+</head>
+<body> </body>
+</html>
+

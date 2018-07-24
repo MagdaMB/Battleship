@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Fun</title>
+<script>
+
+function fun(echo) { 
+	console.log(echo);
+};
+
+fun("Witam");
+
+function boo(aFunction) {
+	aFunction("bum");
+}
+
+boo(fun);
+
+console.log(fun);
+
+fun(boo);
+
+var moreFun = fun;
+
+moreFun("Witam ponownie");
+
+function echoMaker() {
+	return fun;
+}
+
+var bigFun = echoMaker();
+bigFun("Czy to echo?");
+
+
+</script> 
+</head> 
+<body>
+</body>
+</html>
+

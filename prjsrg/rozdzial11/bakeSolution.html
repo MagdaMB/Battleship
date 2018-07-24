@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Funkcje anonimowe: Wypiekanie ciastek</title>
+<script>
+
+window.onload = function() {
+	var button = document.getElementById("bake");
+	button.onclick = function() {
+    	console.log("Już można wypiekać ciasteczka.");
+    	cookies.bake(2500);
+	};
+};
+
+var cookies = {
+	instructions: "Wstępne rozgrzewanie do 175 stopni...",
+	bake: function(time) {
+			console.log("Wypiekam ciasteczka.");
+            setTimeout(done, time);
+	}
+};
+
+function done() {
+	alert("Ciasteczka są gotowe, wyciągnij je, by przestygły.");
+	console.log("Chłodzenie ciasteczek.");
+	var cool = function() {
+		alert("Ciasteczka są już zimne, można je jeść!");
+	};
+	setTimeout(cool, 1000);
+};
+
+</script>
+</head>
+<body>
+<form>
+	<input type="button" id="bake" value="Wypiecz ciasteczka!">
+</form>
+</body>
+</html>
+

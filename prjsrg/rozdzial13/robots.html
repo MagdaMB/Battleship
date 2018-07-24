@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Roboty</title>
+<script>
+
+function Robot(name, year, owner) {
+    this.name = name;
+    this.year = year;
+    this.owner = owner;
+}
+
+Robot.prototype.maker = "Ob.Fa.Ro";
+
+Robot.prototype.speak = function() {
+    alert("Uwaga ostrzeżenie!!");
+};
+
+Robot.prototype.makeCoffee = function() {
+    alert("Podaję kawę.");
+};
+
+Robot.prototype.blinkLights = function() {
+    alert("Błyskam, błyskam!");
+};
+
+
+var robby = new Robot("Robik", 1956, "Dr. Morbius");
+var rosie = new Robot("Robusia", 1962, "Grzegorz Jetson");
+
+robby.onOffSwitch = true;
+robby.makeCoffee = function() {
+    alert("Przynoszę kawę ze Starbucksa.");
+};
+
+rosie.cleanHouse = function() {
+    alert("Sprzątanie! Wkrótce wszystko będzie się błyszczeć...");
+};
+
+console.log("Robot " + robby.name + " został wyprodukowany przez " +
+                robby.maker + " w roku " + robby.year +
+                ", a teraz jego właścicielem jest " + robby.owner);
+robby.makeCoffee();
+robby.blinkLights();
+
+console.log("Robot " + rosie.name + " został wyprodukowany przez " +
+                rosie.maker + " w roku " + rosie.year +
+                ", a teraz jego właścicielem jest " + rosie.owner);
+rosie.cleanHouse();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

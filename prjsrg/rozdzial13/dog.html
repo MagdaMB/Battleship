@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Burek</title>
+<script>
+
+function Dog(name, breed, weight) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+}
+var fido = new Dog("Burek", "mieszaniec", 20);
+var fluffy = new Dog("Dino", "pudel", 16);
+var spot = new Dog("Kieł", "chihuahua", 4);
+var dogs = [fido, fluffy, spot];
+
+for(var i = 0; i < dogs.length; i++) {
+    var size = "mały";
+    if (dogs[i].weight > 10) {
+        size = "duży";
+    }
+    console.log("Pies: " + dogs[i].name
+                 + " to " + size
+                 + " pies rasy " + dogs[i].breed);
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

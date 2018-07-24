@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Ćwiczenia z funkcji pierwszej klasy</title>
+<script>
+
+//
+// Do testów:
+//
+function administer(name, vaccine, time) {
+	var dosage = 10;
+	console.log("Czas podania szczepionki pacjętowi " + name + " : " + time);
+	vaccine(dosage);
+}
+function inject(dosage) {
+	console.log("Podano dawkę " + dosage + "ml");
+}
+var patient = "Burek";
+var time = "5 minut";
+
+// już nie potrzebne...
+/*
+function vaccine(dosage) {
+    if (dosage > 0) {
+        inject(dosage);
+    }
+}
+*/
+
+//
+// rozwiązanie:
+//
+administer(patient, function(dosage) { 
+	if (dosage > 0) {
+		inject(dosage);
+	}
+}, time);
+
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

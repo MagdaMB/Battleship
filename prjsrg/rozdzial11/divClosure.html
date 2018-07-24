@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kliknij mnie!</title>
+<style> 
+    body, button { margin: 10px; } 
+    div { padding: 10px; }
+</style>
+<script>
+
+/*
+//
+// Wersja bez domknięcia...
+//
+var count = 0;
+window.onload = function() {
+    var button = document.getElementById("clickme");
+    button.onclick = handleClick;
+};
+
+function handleClick() {
+    var message = "Kliknąłeś mnie ";
+    var div = document.getElementById("message");
+    count++;
+    div.innerHTML = message + count + " razy!";
+}
+*/
+
+//
+// Wersja z domknięciem.
+//
+window.onload = function() {
+    var count = 0; 
+    var message = "Kliknąłeś mnie ";
+    var div = document.getElementById("message");
+
+    var button = document.getElementById("clickme");
+    button.onclick = function() {
+        count++;
+        div.innerHTML = message + count + " razy!";
+    };
+};
+
+</script> 
+</head> 
+<body>
+    <button id="clickme">Kliknij mnie!</button>
+    <div id="message"></div>
+</body>
+</html>
+

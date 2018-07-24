@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>JavaScriptowe wyzwanie ekstremalne</title>
+<script>
+//
+// Skorzystaj z komentarzy, aby osobno przetestować każdą
+// z próbek.
+//
+
+//
+// Próbka #1
+//
+/*
+var secret = "007";
+
+function getSecret() {
+	var secret = "008";
+
+	function getValue() {
+		return secret;
+	}
+
+	return getValue();
+}
+
+var result = getSecret();
+console.log(result);
+*/
+
+//
+// Próbka #2
+//
+var secret = "007";
+
+function getSecret() {
+	var secret = "008";
+
+	function getValue() {
+		return secret;
+	}
+
+	return getValue;
+}
+
+var getValueFun = getSecret();
+var result = getValueFun();
+console.log(result);
+
+</script>
+</head>
+<body> </body>
+</html>
+

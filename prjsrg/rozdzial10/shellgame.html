@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Gra w trzy orzeszki</title>
+<script>
+
+var winner = function() { alert("Farciarzu!") };
+var loser = function() { alert("Leszczu!") };
+// W ramach rozgrzewki przetestujmy funkcję.
+winner();
+// Dla praktyki określmy wartości zmiennych.
+var a = winner;
+var b = loser;
+var c = loser;
+a();
+b();
+// A teraz spróbuj swojego szczęścia w grze.
+c = a;
+a = b;
+b = c;
+c = a;
+a = c;
+a = b;
+b = c;
+a();
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

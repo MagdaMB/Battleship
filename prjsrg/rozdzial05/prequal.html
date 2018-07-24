@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <title>Wstępna selekcja samochodów</title>
+    <meta charset="utf-8">
+    <script>
+    
+    var chevy = { 
+        make: "Chevy",
+        model: "Bel Air",
+        year: 1957, 
+        color: "czerwony",
+        passengers: 2,
+        convertible: false,
+        mileage: 1021
+    };
+    
+    var fiat = { 
+        make: "Fiat",
+        model: "500",
+        year: 1957, 
+        color: "szaroniebieski",
+        passengers: 2,
+        convertible: false,
+        mileage: 88000
+    };
+    
+    var cadi = {
+        make: "GM",
+        model: "Cadillac",
+        year: 1955, 
+        color: "jasnobrązowy",
+        passengers: 5,
+        convertible: false,
+        mileage: 12892
+    };
+    
+    
+    var taxi = { 
+        make: "SieMoCorp",
+        model: "Taxi",
+        year: 1955,
+        color: "żółty",
+        passengers: 4,
+        convertible: false,
+        mileage: 281341
+    };
+    
+    function prequal(car) {
+        if (car.mileage > 10000) {
+            return false;
+        } else if (car.year > 1960) {
+            return false;
+        }
+        return true;
+    }
+    
+    var worthALook = prequal(taxi);
+    
+    if (worthALook) {
+        console.log("Powinieneś zainteresować się tym " + taxi.make + " " + taxi.model);
+    } else {
+        console.log("Ten " + taxi.make + " " + taxi.model + " możesz sobie podarować");
+    }
+    
+    //
+    // dodaj funkcję by ułatwić sobie generowanie wyników w oknie konsoli
+    //
+    function isWorthALook(didQualify, car) {
+        if (didQualify) {
+            console.log("Powinieneś zainteresować się tym " + taxi.make + " " + taxi.model);
+        } else {
+            console.log("Ten " + taxi.make + " " + taxi.model + " możesz sobie podarować");
+        }
+    }
+    isWorthALook(prequal(taxi), taxi);
+    isWorthALook(prequal(cadi), cadi);
+    isWorthALook(prequal(chevy), chevy);
+    isWorthALook(prequal(fiat), fiat);
+    
+    </script>
+</head>
+<body>
+</body>
+</html>
+

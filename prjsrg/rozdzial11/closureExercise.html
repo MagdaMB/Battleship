@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Ćwiczenie z domknięć</title>
+<script>
+
+// 1.
+function makePassword(password) {
+	return function guess(passwordGuess) {
+		return (passwordGuess === password);
+	};
+}
+
+var tryGuess = makePassword("tajne");
+console.log("Próbuję 'nic z tego': " + tryGuess("nic z tego"));
+console.log("Próbuję 'tajne': " + tryGuess("tajne"));
+
+
+// 2.
+function multN(n) {
+	return function multBy(m) {
+		return n*m;
+	};
+}
+
+var multBy3 = multN(3);
+console.log("Mnożymy liczbę 2: " + multBy3(2));
+console.log("Mnożymy liczbę 3: " + multBy3(3));
+
+
+// 3.
+function makeCounter() {
+	var count = 0;
+
+	return {
+		count: function() {
+			count++;
+			return count;
+		}
+	};
+}
+
+var counter = makeCounter();
+console.log(counter.count());
+console.log(counter.count());
+console.log(counter.count());
+
+
+</script> 
+</head> 
+<body> </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Kaczki</title>
+  <script>
+function Duck(sound) { 
+	this.sound = sound;
+	this.quack = function() {
+		console.log(this.sound);
+	};
+}
+var toy = new Duck("kwa kwa"); 
+toy.quack();
+console.log(typeof toy); 
+console.log(toy instanceof Duck);
+  </script>
+</head>
+<body>
+</body>
+</html>

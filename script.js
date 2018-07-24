@@ -1,4 +1,4 @@
-var location1=Math.floor(Math.random() * 5); //pola do przechowywania położenia komórek okrętu
+/*var location1=Math.floor(Math.random() * 5); //pola do przechowywania położenia komórek okrętu
 var location2=location1 + 1;
 var location3=location2 + 1;
 
@@ -40,4 +40,50 @@ if(guesses != 0) {
     stats = "Nie podjąłeś żadnej próby..."
 }
 alert(stats);
+*/
 
+var view = {
+    displayMessage: function(msg) {
+        var messageArea = document.getElementById("messageArea");
+        messageArea.innerHTML = msg;
+    },
+    displayHit: function(location) {
+        var cell = document.getElementById(location);
+        cell.setAttribute("class", "ship");
+    },
+    displayMiss: function(location) {
+        var cell = document.getElementById(location);
+        cell.setAttribute("class", "miss");
+    }
+}
+
+var controller = {
+
+}
+
+var model = {
+    boardSize: 7,
+    numShips: 3,
+    ships: [
+        {location: ["06", "16", "26"], hits: ["", "", ""]}, {location: ["32", "33", "34"], 
+        hits: ["", "", ""]}, {location: ["63", "64", "65"], hits: ["", "", "hit"]}
+    ],
+    shipsSunk: 0,
+    shipLength: 3,
+    fire: function(guess) {
+        for(var i=0; i<numShips; i++) {
+            var ship = ships[i];
+        }
+    }
+}
+
+
+
+view.displayMiss("00");
+view.displayHit('34');
+view.displayMiss('55');
+view.displayHit('12');
+view.displayMiss('25');
+view.displayHit('26');
+
+view.displayMessage("hello world")

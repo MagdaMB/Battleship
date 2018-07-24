@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title> Konstruktor Car </title>
+<script>
+
+function Car(make, model, year, color, passengers, convertible, mileage) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    this.passengers = passengers;
+    this.convertible = convertible;
+    this.mileage = mileage;
+    this.started = false;
+
+    this.start = function() {
+        this.started = true;
+    };
+
+    this.stop = function() {
+        this.started = false;
+    };
+
+    this.drive = function() {
+        if (this.started) {
+            console.log(this.make + " " + this.model + " robi: brum wrrrr!");
+        } else {
+            console.log("Najpierw musisz włączyć silnik.");
+        }
+    };
+
+}
+
+var chevy = new Car("Chevy", "Bel Air", 1957, "czerwony", 2, false, 1021);
+var cadi = new Car("GM", "Cadillac", 1955, "jasnobrązowy", 5, false, 12892);
+var taxi = new Car("SieMoCorp", "Taxi", 1955, "żółty", 4, false, 281341);
+var fiat = new Car("Fiat", "500", 1957, "szaroniebieski", 2, false, 88000);
+
+var testCar = new Car("SieMoCorp", "Auto testowe", 2014, "morski", 2, true, 21);
+
+var cars = [chevy, cadi, taxi, fiat, testCar];
+
+for(var i = 0; i < cars.length; i++) {
+    cars[i].start();
+    cars[i].drive();
+    cars[i].drive();
+    cars[i].stop();
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

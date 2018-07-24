@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Testy płynów do robienia baniek</title>
+    <script>
+        var scores = [60, 50, 60, 58, 54, 54,
+                      58, 50, 52, 54, 48, 69,
+                      34, 55, 51, 52, 44, 51,
+                      69, 64, 66, 55, 52, 61,
+                      46, 31, 57, 52, 44, 18,
+                      41, 53, 55, 61, 51, 44];
+          
+        var highScore = 0;
+        var output;
+        //
+        // z użyciem pętli while
+        //
+        var i = 0;
+        while (i < scores.length) {
+            output = "Płyn do baniek nr " + i + " wynik: " + scores[i];
+            console.log(output);
+            if (scores[i] > highScore) {
+                highScore = scores[i];
+            }
+            i = i + 1;
+        }
+        console.log("Liczba testów: " + scores.length);
+        console.log("Największa liczba wytworzonych baniek: " + highScore);
+          
+        //
+        // z użyciem pętli for
+        //
+        for (var i = 0; i < scores.length; i++) {
+            output = "Płyn do baniek nr " + i + " wynik: " + scores[i];
+            console.log(output);
+            if (scores[i] > highScore) {
+                highScore = scores[i];
+            }
+        }
+        console.log("Liczba testów: " + scores.length);
+        console.log("Największa liczba wytworzonych baniek: " + highScore);
+          
+        //
+        // z prezentacją najlepszego płynu
+        //
+          
+        var bestSolutions = [];
+        for (var i = 0; i < scores.length; i++) {
+            if (scores[i] == highScore) {
+                bestSolutions.push(i);
+            }
+        }
+        console.log("Płyny z najlepszym wynikiem: " + bestSolutions);
+    </script>
+</head>
+<body>
+</body>
+</html>
+

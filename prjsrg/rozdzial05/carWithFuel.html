@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Samochód z paliwem</title>
+    <script>
+        
+        var fiat = { 
+            make: "Fiat",
+            model: "500",
+            year: 1957, 
+            color: "szaroniebieski",
+            passengers: 2,
+            convertible: false,
+            mileage: 88000,
+            fuel: 0,
+            started: false,
+        
+            start: function() {
+                if (this.fuel == 0) {
+                    alert("Bak jest pusty, zatankuj przed jazdą!");
+                } else {
+                    this.started = true;
+                }
+            },
+        
+            stop: function() {
+                this.started = false;
+            },
+        
+            drive: function() {
+                if (this.started) {
+                    if (this.fuel > 0) {
+                        alert(this.make + " " +
+                              this.model + " robi: brum wrrrr!");
+                        this.fuel = this.fuel - 1;
+                    } else {
+                        alert("Osz..., brak paliwa.");
+                        this.stop();
+                    } 
+                } else {
+                    alert("Najpierw musisz włączyć silnik.");
+                }
+            },
+        
+            addFuel: function(amount) {
+                this.fuel = this.fuel + amount;
+            }
+        };
+        
+        fiat.start();
+        fiat.drive();
+        fiat.addFuel(2);
+        fiat.start();
+        fiat.drive();
+        fiat.drive();
+        fiat.drive();
+        fiat.stop();
+        
+    </script>
+</head>
+<body>
+</body>
+</html>
+

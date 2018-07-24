@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>First class functions</title>
+<script>
+
+var passengers = [  { name: "Janka Pętlicka", paid: true, ticket: "turystyczna" },
+                    { name: "Dr Zatan", paid: true, ticket: "pierwsza klasa" },
+                    { name: "Stefa Właściwa", paid: false, ticket: "pierwsza klasa" },
+                    { name: "Janek Funkcyjniak", paid: true, ticket: "premium" } ];
+
+function processPassengers(passengers, test) {
+    for (var i = 0; i < passengers.length; i++) {
+        if (test(passengers[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function checkNoFlyList(passenger) {
+    return (passenger.name === "Dr Zatan");
+}
+
+function checkNotPaid(passenger) {
+    return (!passenger.paid);
+}
+
+function printPassenger(passenger) {
+    var message = passenger.name;
+    if (passenger.paid === true) {
+        message = message + " zapłacił(a).";
+    } else {
+        message = message + " nie zapłacił(a).";
+    }
+    console.log(message);
+    return false;
+}
+
+//
+// Samolot może wystartować tylko wtedy, gdy żadnego z pasażerównie nie ma
+// na liście osób objętych zakazem lotów.
+//
+var allCanFly = processPassengers(passengers, checkNoFlyList);
+if (!allCanFly) {
+    console.log("Samolot nie może wystartować: na pokładzie jest pasażer objęty zakazem lotów.");
+}
+
+//
+// Samolot może wystartować tylko wtedy, gdy każdy pasażer zapłacił za przelot.
+//
+
+var allPaid = processPassengers(passengers, checkNotPaid);
+if (!allPaid) {
+    console.log("Samolot nie może wystartować: nie wszyscy zapłacili za przelot.");
+}
+
+//
+// W tym przypadku wyniki nas nie interesują; funkcji processPassengers
+// używamy tylko do wyświetlenia listy pasażerów.
+//
+processPassengers(passengers, printPassenger);
+
+function createDrinkOrder(passenger) {
+    var orderFunction;
+    if (passenger.ticket === "pierwsza klasa") {
+        orderFunction = function() {
+            alert("Podać koktajl czy wino?");
+        };
+    } else if (passenger.ticket === "premium") {
+        orderFunction = function() {
+            alert("Podać wino, colę czy wodę?");
+        };
+    } else {
+        orderFunction = function() {
+            alert("Podać colę czy wodę?");
+        };
+    }
+    return orderFunction;
+}
+
+
+function createDinnerOrder(passenger) {
+    var orderFunction;
+    if (passenger.ticket === "pierwsza klasa") {
+        orderFunction = function() {
+            alert("Podać kurczaka czy makaron?");
+        };
+    } else if (passenger.ticket === "premium") {
+        orderFunction = function() {
+            alert("Podać przekąskę czy talerz serów?");
+        };
+    } else {
+        orderFunction = function() {
+            alert("Podać orzeszki czy precelki?");
+        };
+    }
+    return orderFunction;
+}
+
+function pickupTrash() {
+    alert("Czy mogę sprzątnąć śmieci?");
+}
+
+function serveCustomer(passenger) {
+    var getDrinkOrderFunction = createDrinkOrder(passenger);
+    var getDinnerOrderFunction = createDinnerOrder(passenger);
+
+    getDrinkOrderFunction();
+
+    // Pobieramy zamówienie na posiłek.
+    getDinnerOrderFunction();
+
+    getDrinkOrderFunction();
+    getDrinkOrderFunction();
+
+    // Wyświetlamy film.
+
+    getDrinkOrderFunction();
+
+    // Zbieramy śmieci.
+    pickupTrash();
+}
+
+function servePassengers(passengers) {
+    for (var i = 0; i < passengers.length; i++) {
+        serveCustomer(passengers[i]);
+    }
+}
+
+servePassengers(passengers);
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

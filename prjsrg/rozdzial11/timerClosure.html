@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Licznik czasu z domknięciem</title>
+<script>
+
+
+function makeTimer(doneMessage, n) {
+
+	setTimeout(function() {
+		alert(doneMessage);
+	}, n);
+
+	doneMessage = "AUĆ!";
+}
+
+makeTimer("Ciasteczka są już gotowe!", 1000);
+
+
+
+</script> 
+</head> 
+<body>
+</body>
+</html>
+

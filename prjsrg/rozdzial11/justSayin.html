@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Ćwiczenie ze zmiennych niezależnych</title>
+<script>
+
+// Ten kon nie będzie działał, gdyż funkcja justSayin 
+// potrzebuje środowiska, które będzie zawierać wartości 
+// wszystkich używanych zmiennych (czyli które je "domknie").
+
+function justSayin(phrase) {
+	var ending = "";
+	if (beingFunny) {
+		ending = " -- Tak tylko mówię!";
+	} else if (notSoMuch) {
+		ending = " -- Nie za bardzo.";
+	}
+	alert(phrase + ending);
+}
+
+justSayin("Witam wszystkich!");
+
+</script>
+</head>
+<body> </body>
+</html>
+

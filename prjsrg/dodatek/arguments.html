@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Obiekt arguments </title>
+  <script>
+
+function printArgs() {
+    for (var i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+    }
+}
+
+printArgs("jeden", 2, 1+2, "cztery");
+
+
+function emote(kind) {
+	if (kind === "cisza") {
+		console.log("Gracz siedzi spokojnie i cicho.");
+	} else if (kind === "mówi") {
+		console.log("Gracz mówi: '" + arguments[1] + "'");
+	} 
+}
+
+emote("cisza");
+emote("mówi", "Stoję!");
+
+  </script>
+</head>
+<body>
+</body>
+</html>

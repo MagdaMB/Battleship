@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Przesłanianie wbudowanych metod</title>
+<script>
+
+function Robot(name, year, owner) {
+	this.name = name;
+	this.year = year;
+	this.owner = owner;
+}
+
+var toy = new Robot("Zabawka", 2013, "Armand");
+console.log(toy.toString());
+
+Robot.prototype.toString = function() {
+	return this.name + " to robot, a jego właścicielem jest " + this.owner;
+};
+var toy = new Robot("Zabawka", 2013, "Armand"); console.log(toy.toString());
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

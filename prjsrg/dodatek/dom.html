@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Więcej operacji na DOM </title>
+  <script>
+window.onload = function() {
+
+	//
+	//  Odnajdujemy pierwszy element li należący do klasy "song".
+	//
+	var li = document.querySelector("#playlist .song");
+
+	console.log("Matched the song " + li.innerHTML);
+
+
+	// 
+	// Tworzymy nowy element i dodajemy go do strony.
+	//
+	var newItem = document.createElement("li");
+	newItem.innerText = "Yellow Submarine";
+	var ul = document.getElementById("playlist");
+	ul.appendChild(newItem);
+}
+  </script>
+</head>
+<body>
+<ul id="playlist">
+<li class="song">Błękitne łańcuchy bez znaków</li>
+<li class="song">Wielkie obiekty w ogniu</li>
+<li class="song">Gdy poznałem co to Kod</li>
+<li class="song">Tango miData</li>
+</ul>
+</body>
+</html>
