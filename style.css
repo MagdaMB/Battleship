@@ -64,6 +64,6 @@ button {
     background: url("images/miss.png") no-repeat center;
 }
 
-.ship {
+.hit {
     background: url("images/ship.png") no-repeat center;
 }
