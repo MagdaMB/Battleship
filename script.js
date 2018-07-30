@@ -50,6 +50,12 @@ var model = {
         {locations: ["24", "34", "44"], hits: ["", "", ""]}, 
         {locations: ["10", "11", "12"], hits: ["", "", ""]}
     ],
+    /*
+    ships: [
+        {locations: [0, 0, 0], hits: ["", "", ""]}, 
+        {locations: [0, 0, 0], hits: ["", "", ""]}, 
+        {locations: [0, 0, 0], hits: ["", "", ""]}
+    ],*/
     shipsSunk: 0,
     shipLength: 3,
     fire: function(guess) {
@@ -80,7 +86,50 @@ var model = {
             }
         return true;
         }
-    }
+    },
+    /*generateShipLocations: function() {
+        var locations;
+        for(var i=0; i< this.numShips; i++) {
+            do {
+                locations = this.generateShip;
+            } while (this.collision(locations));
+        this.ships[i].locations = locations;
+        }   
+    },
+    generateShip: function() {
+        var direction = Math.floor(Math.random() * 2);
+        var row;
+        var col;
+
+        if (direction === 1) {
+            row = Math.floor(Math.random() * this.boardSize);
+            col = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+        } else {
+            row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+            col = Math.floor(Math.random() * this.boardSize);
+        }
+
+        var newShipLocation = [];
+        for(var i=0; i<this.shipLength; i++){
+            if(direction === 1) {
+                newShipLocation.push(row + "" + (col + i));
+            } else {
+                newShipLocation.push((row + i) + "" + col);
+            }
+        }
+    return newShipLocation;
+    },
+    collision: function(locations) {
+        for(var i=0; i<this.numShips; i++) {
+            var ship = this.ships[i];
+            for(var j=0; j<locations.length; j++){
+                if(ship.locations.indexOf(locations[j] >=0)) {
+                    return true;
+                }
+            }
+        }
+    return false;
+    }*/
 }
 
 var view = {
@@ -90,11 +139,11 @@ var view = {
     },
     displayHit: function(location) {
         var cell = document.getElementById(location);
-        cell.setAttribute("class", "hit");
+        cell.classList.add("hit");
     },
     displayMiss: function(location) {
         var cell = document.getElementById(location);
-        cell.setAttribute("class", "miss");
+        cell.classList.add("miss");
     }
 }
 
@@ -132,5 +181,32 @@ function parseGuess(guess) {
 return null;
 }
 
-controller.processGuess('A0');
-controller.processGuess('A6');
+
+function init() {
+    var fireButton = document.getElementById("checkButton");
+    fireButton.onclick = handleFireButton; 
+
+    var guessInput = document.getElementById("userMessage");
+    guessInput.onkeypress = handleKeyPress;
+
+    /*model.generateShipLocations();*/
+}
+
+function handleFireButton() {
+    var guessInput = document.getElementById("userMessage");
+    var guess = guessInput.value;
+    controller.processGuess(guess);
+    guessInput.value = "";
+
+}
+
+function handleKeyPress(e) {
+    var fireButton = document.getElementById("checkButton");
+
+    if(e.keyCode === 13) {
+        fireButton.click();
+        return false;
+    }
+}
+window.onload = init();
+
